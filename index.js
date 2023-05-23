@@ -25,7 +25,9 @@ mongoose
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
-app.get('/', "bienvenue sur l'API de chat")
+app.get('/', (req, res) => {
+  res.json({message: "Bienvenue sur l'API de chat"})
+})
 
 const server = app.listen(process.env.PORT, () =>
   console.log(`Server started on ${process.env.PORT}`)
